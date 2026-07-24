@@ -241,4 +241,4 @@ Click **⏭️ Skip Next Activity** in the HUD widget to programmatically click 
 
 ## 📜 License
 
-Distributed under the MIT License. See `LICENSE` for details.
+Distributed under the MIT License. See [`LICENSE`](./LICENSE) for details.
