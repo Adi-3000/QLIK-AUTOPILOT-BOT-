@@ -95,6 +95,14 @@ To run userscripts, you must first install the **Tampermonkey** browser extensio
 * 🌐 **Mozilla Firefox**: [Tampermonkey on Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
 * 🌐 **Safari**: [Tampermonkey on Mac App Store](https://apps.apple.com/app/tampermonkey/id1482490089)
 
+#### ⚠️ Enable "Allow User Scripts" (CRITICAL for Edge & Chrome)
+Modern Edge & Chrome browsers block Tampermonkey userscripts from executing until you explicitly enable **Allow User Scripts**:
+
+1. Right-click the **Tampermonkey extension icon** in your browser toolbar and click **Manage extension** (or navigate to `edge://extensions` / `chrome://extensions` and click **Details** under Tampermonkey).
+2. Look for the **Allow User Scripts** option.
+3. Toggle the switch to **ON** 🟢 (*"The extension will be able to run code..."*).
+4. *(Optional)* If loading local script files, also toggle **ON** **"Allow access to file URLs"**.
+
 > [!TIP]
 > After installing, click the extension puzzle piece icon in your browser toolbar and **pin Tampermonkey** so it is easily accessible.
 
