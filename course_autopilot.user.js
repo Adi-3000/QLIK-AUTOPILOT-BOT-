@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Qlik Sense Course Autopilot (Multi-Tab Edition)
 // @namespace    http://tampermonkey.net/
-// @version      8.0
+// @version      8.1
 // @description  Automates page progression, opening videos in new tabs, setting 2x speed, and auto-closing them when finished.
 // @author       Antigravity
 // @match        https://learning.qlik.com/*
@@ -537,38 +537,27 @@
                     }
                 }
 
+                // CASE 2: Activity Page (URL DOES contain '/activity/') or Video Player present
                 const playBtn = getPlayCourseButton() || findContinueOrGetStartedButton();
                 if (playBtn) {
-                    if (!playBtn.dataset.autopilotClicked) {
-                        playBtn.dataset.autopilotClicked = 'true';
-                        addLog("Found play/start button. Triggering click in same tab...");
+                    addLog("Activity page: Clicking 'Get Started' to launch video...");
 
-                        const mins = getCurrentPageDuration();
-                        const title = getCurrentActivityTitle();
-                        const waitTimeSeconds = Math.round((mins * 60) / config.playbackSpeed) + 15;
-                        const targetWaitMs = waitTimeSeconds * 1000;
-                        GM_setValue('qlik_targetWaitMs_v6', targetWaitMs);
+                    const mins = getCurrentPageDuration();
+                    const title = getCurrentActivityTitle();
+                    const waitTimeSeconds = Math.round((mins * 60) / config.playbackSpeed) + 15;
+                    const targetWaitMs = waitTimeSeconds * 1000;
+                    GM_setValue('qlik_targetWaitMs_v6', targetWaitMs);
 
-                        if (playBtn.getAttribute('target') === '_blank') {
-                            playBtn.setAttribute('target', '_self');
-                        }
-
-                        if (playBtn.href && playBtn.href.startsWith('http')) {
-                            window.location.href = playBtn.href;
-                        } else {
-                            playBtn.click();
-                        }
+                    if (playBtn.getAttribute('target') === '_blank') {
+                        playBtn.setAttribute('target', '_self');
                     }
 
-                    if (tabHasVideo()) {
-                        const title = getCurrentActivityTitle();
-                        addLog(`Video player confirmed on page ("${title}"). Transitioning to PLAYING_VIDEO state.`);
-                        transitionState(STATE.PLAYING_VIDEO);
-                        config.videoStartTime = Date.now();
-                        GM_setValue('qlik_videoStartTime_v6', config.videoStartTime);
-                    } else {
-                        updateStatusText("Navigating to lesson...");
-                    }
+                    playBtn.click();
+
+                    transitionState(STATE.PLAYING_VIDEO);
+                    config.videoStartTime = Date.now();
+                    GM_setValue('qlik_videoStartTime_v6', config.videoStartTime);
+                    addLog(`Lesson: "${title}" (${mins} mins). Watch time at ${config.playbackSpeed}x speed: ${waitTimeSeconds} seconds.`);
                 } else if (tabHasVideo()) {
                     addLog("Video player detected on screen. Transitioning to PLAYING_VIDEO state...");
                     const mins = getCurrentPageDuration();
@@ -839,7 +828,7 @@
         container.innerHTML = `
             <div id="qlik-autopilot-header">
                 <span>🤖 Autopilot</span>
-                <span style="font-size:9px; opacity:0.7;">v8.0</span>
+                <span style="font-size:9px; opacity:0.7;">v8.1</span>
             </div>
             <div id="qlik-autopilot-body">
                 <div class="qa-row">
