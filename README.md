@@ -1,8 +1,8 @@
-# 🚀 Qlik Sense Course Autopilot (Multi-Tab Edition v8.0)
+# 🚀 Qlik Sense Course Autopilot (Multi-Tab Edition v10.0)
 
 <div align="center">
 
-![Qlik Autopilot Banner](https://img.shields.io/badge/Qlik_Learning-Autopilot_v8.0-009845?style=for-the-badge&logo=qlik&logoColor=white)
+![Qlik Autopilot Banner](https://img.shields.io/badge/Qlik_Learning-Autopilot_v10.0-009845?style=for-the-badge&logo=qlik&logoColor=white)
 ![Userscript](https://img.shields.io/badge/Tampermonkey-Supported-4B0082?style=for-the-badge&logo=tampermonkey&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)
 ![Speed Control](https://img.shields.io/badge/Playback_Speed-1.0x_to_16.0x-FF69B4?style=for-the-badge)
@@ -24,28 +24,28 @@
       <p>Automatically scans course paths, detects uncompleted activities (videos, reading modules, quizzes), and launches them without manual intervention.</p>
     </td>
     <td width="50%">
-      <h3>⚡ Multi-Tab Architecture</h3>
-      <p>Opens course activities in programmatically isolated child tabs, maintains execution state across windows, and auto-closes tabs upon lesson completion.</p>
+      <h3>🧩 Gemini AI Quiz Auto-Solver</h3>
+      <p>Clicks <b>Launch</b>, reads single & multi-select MCQs as well as <b>Drag & Drop matching pattern</b> questions, queries the Gemini API for correct answers, and solves all questions to completion.</p>
     </td>
   </tr>
   <tr>
+    <td width="50%">
+      <h3>⚡ Multi-Tab Architecture</h3>
+      <p>Opens course activities in programmatically isolated child tabs, maintains execution state across windows, and auto-closes tabs upon lesson completion.</p>
+    </td>
     <td width="50%">
       <h3>⏩ Variable Playback Speed Control</h3>
       <p>Enforces 2.0x playback (or custom speeds up to 16.0x) on HTML5, Wistia, Vimeo, and embedded video players to accelerate learning time.</p>
     </td>
+  </tr>
+  <tr>
     <td width="50%">
       <h3>🛡️ Smart Popup & Modal Bypasser</h3>
       <p>Automatically detects and handles native Qlik dialogs like <i>"Return to activity"</i>, <i>"Continue Learning"</i>, and modal navigation prompts.</p>
     </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3>📄 Non-Video Content Auto-Skip</h3>
-      <p>Identifies static text or reading-only pages and auto-completes them after a configurable timeout (default 15 seconds).</p>
-    </td>
     <td width="50%">
       <h3>💎 Glassmorphic HUD & Live Log Drawer</h3>
-      <p>Sleek floating UI widget providing real-time execution status, live log inspection, manual state resets, and instant speed overrides.</p>
+      <p>Sleek floating UI widget providing real-time execution status, Gemini API key input, live log inspection, and manual state resets.</p>
     </td>
   </tr>
 </table>
